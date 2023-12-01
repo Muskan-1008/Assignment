@@ -1,0 +1,71 @@
+
+                                                                                     SUPERAGI ASSIGNMENT
+
+Prob-1: i)When you duplicate feature $n$ into feature $(n+1)$ and retrain the model, it is likely that the weights associated with these duplicated features will be distributed between $w_{new_n}$ and $w_{new_{n+1}}$. Since the modelaims to minimize the error or loss function, it adjusts the weights based on the provided data.
+ii)Assuming that the duplicated features $(n+1)$ are similar or identical to the original features, the weights may distribute evenly or proportionally between $w_{new_n}$ and $w_{new_{n+1}}$. This happens because the model needs to adjust both weights to achieve a similar level of fitting as before while considering the influence of both duplicated features.
+iii)However, the exact relationship between $w_{new_n}$ and $w_{new_{n+1}}$ would depend on various factors such as the regularization used, the interactions between features, the dataset, and the specific optimization method employed during training.
+
+In a simplistic view, the model might try to allocate the weights similarly between the duplicated features to ensure they collectively contribute in a manner similar to the original single feature. Yet, the actual values can vary significantly based on the data and other factors involved in the training process.
+
+Prob-2:To determine which statement is true, we can calculate the confidence intervals for the click-through rates of each template compared to the control template (A). Based on the provided information:
+
+Template A (control): 10% CTR
+Template B: 7% CTR
+Template C: 8.5% CTR
+Template D: 12% CTR
+Template E: 14% CTR
+To compare these templates against A, we'll look at their confidence intervals. Assuming these are proportions (CTR), we can use methods like the normal approximation to the binomial distribution to calculate confidence intervals.
+
+From the given data, here are the observations:
+
+B, C, D, and E have CTRs lower or higher than A.
+The question requires a 95% confidence level to draw conclusions.
+Given the information, statement 2 seems to be the most accurate:
+
+E has a higher CTR than A with over 95% confidence.
+B has a lower CTR than A with over 95% confidence.
+To conclusively determine where C and D compare to A with 95% confidence, more data or a longer test might be necessary, as the confidence intervals for C and D are not explicitly mentioned.
+Therefore, statement 2 is the most accurate based on the provided information, as it correctly identifies the comparison between E and B with respect to A and acknowledges the uncertainty regarding C and D.
+
+Prob-3:
+In the case of sparse feature vectors, modern well-written packages for logistic regression often utilize sparse matrix operations to optimize computation. The computational cost per gradient descent iteration in this scenario can be approximated as:
+
+Forward Pass:
+
+Computing the weighted sum of features and parameters: O(m * k) for each iteration. Here, m is the number of training examples and k is the average number of non-zero entries in each example.
+Applying the sigmoid function to the weighted sum: O(m) for each iteration.
+Backward Pass (Gradient Calculation):
+
+Calculating gradients: O(m * k) for each iteration.
+Update Step:
+
+Updating the parameters: O(n) for each iteration, where n is the total number of features.
+Overall, the approximate computational cost per iteration of gradient descent for logistic regression with sparse feature vectors in well-written packages can be estimated as O(m * k + n). The sparse nature of the features allows for computational efficiency, reducing the complexity compared to cases where all features are dense.
+
+Prob-4:
+
+In terms of improving the accuracy of the V2 classifier for classifying news articles from the 1000 news sources, let's assess the potential impact of each approach:
+
+Selecting 10k Stories Closest to Decision Boundary from 1 Million Random Stories (V1 Classifier Output):
+
+This method aims to identify examples where the V1 classifier struggled the most in making accurate predictions. By selecting examples closest to the decision boundary, these instances could be the most challenging for the classifier.
+Potential Outcome: The selected examples might represent ambiguous cases where the classification task is particularly difficult. Training on these examples could help the V2 classifier better handle similar challenging instances, potentially improving its accuracy.
+Randomly Selecting 10k Labeled Stories from 1000 News Sources:
+
+This approach involves picking random stories from the 1000 news sources without considering the V1 classifier's output.
+Potential Outcome: This method doesn't specifically target challenging or ambiguous cases. While it provides diversity in the dataset, it might not focus on instances that could significantly impact the classifier's ability to handle difficult cases.
+Picking 10k Stories Wrong and Farthest from Decision Boundary from 1 Million Random Stories:
+
+This method targets instances where the V1 classifier made incorrect predictions and was also highly confident (far from the decision boundary).
+Potential Outcome: These instances might represent cases where the V1 classifier was very wrong in its predictions. Training on these examples might help V2 to learn from critical misclassifications, potentially improving its accuracy by addressing specific weaknesses of the V1 model.
+Ranking Based on Expected Impact on V2 Classifier Accuracy:
+
+The third method might have the most significant impact on improving the accuracy of the V2 classifier as it specifically targets instances where the V1 classifier made highly confident yet incorrect predictions.
+The first method, by selecting examples closest to the decision boundary, could also provide valuable training data, potentially helping the V2 classifier handle ambiguous cases.
+The second method, random selection, might provide general diversity but may not specifically address the V1 classifier's weaknesses or focus on challenging cases.
+However, the effectiveness of each method can vary based on the nature and diversity of the news sources, the complexity of the classification task, and the characteristics of the V1 classifier's errors. Ultimately, testing these approaches empirically would provide the most accurate evaluation of their impact on the V2 classifier's accuracy.
+
+
+
+​
+
